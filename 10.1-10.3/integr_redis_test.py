@@ -6,7 +6,7 @@ from repository import Rediska
 class RedisTestCase(unittest.TestCase):
 	def setUp(self):
     		redis_client = redis.Redis(host='localhost', port=6379, decode_responses=True)
-    		self.cache = RedisRepository(redis_client)
+    		self.cache = Rediska(redis_client)
     		os.system('docker run --rm --detach --name emils-rediska-test --publish 6379:6379 redis')
 
 	def test_get_returns_value_from_cache(self):
